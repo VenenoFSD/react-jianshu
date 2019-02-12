@@ -56,6 +56,7 @@ export const NavItem = styled.div`
 
 export const SearchWrapper = styled.div`
   position: relative;
+  margin-left: 20px;
   .search-icon {
     position: absolute;
     top: 7px;
@@ -68,7 +69,7 @@ export const SearchWrapper = styled.div`
 export const NavSearch = styled.input.attrs({
   placeholder: '搜索'
 })`
-  width: 160px;
+  width: 200px;
   height: 38px;
   border: none;
   outline: none;
@@ -76,18 +77,64 @@ export const NavSearch = styled.input.attrs({
   padding: 0 40px 0 20px;
   box-sizing: border-box;
   background-color: #eee;
-  margin-left: 20px;
   transition: width 0.4s;
   &::placeholder {
     color: #999;
   }
   &:focus {
-    width: 240px;
+    width: 300px;
     +.search-icon {
       color: #fff;
       border-radius: 50%;
       background-color: #777;
     }
+    ~.hot-search {
+      display: block;
+    }
+  }
+`;
+
+export const HotSearch = styled.div`
+  position: absolute;
+  width: 240px;
+  left: 0;
+  top: 48px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, .2);
+  padding: 20px 20px 4px 20px;
+  box-sizing: border-box;
+  display: none;
+  &.show {
+    display: block;
+  }
+`;
+
+export const HotTitle = styled.div`
+  display: flex;
+  justify-content: space-between;
+  color: #999;
+  font-size: 14px;
+  margin-bottom: 16px;
+  .change {
+    font-size: 13px;
+    cursor: pointer;
+    &:hover {
+      color: #666;
+    }
+  }
+`;
+
+export const HotItem = styled.li`
+  display: inline-block;
+  border: 1px solid #ddd;
+  margin: 0 8px 10px 0;
+  padding: 3px 5px;
+  font-size: 12px;
+  color: #888;
+  border-radius: 4px;
+  cursor: pointer;
+  &:hover {
+    border-color: #aaa;
+    color: #555;
   }
 `;
 
