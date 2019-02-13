@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
-import { HeaderWrapper, HeaderContainer, Logo, Nav, NavLeft, NavRight, NavItem, SearchWrapper, NavSearch, HotSearch, HotTitle, HotItem, Addition, Button } from "./style"
+import { HeaderWrapper, HeaderContainer, Logo, Nav, NavLeft, NavRight, NavItem, SearchWrapper, NavSearch, HotSearch, HotTitle, Change, HotItem, Addition, Button } from "./style"
 import { connect } from 'react-redux'
 import { actionCreators } from './store'
 
 class Header extends Component {
-
   render () {
     const { showList, hotSearch, curPage, totalPage, handleInputFocus, handleMouseEnter, handleMouseLeave, handleChangePage } = this.props;
     return (
@@ -24,7 +23,10 @@ class Header extends Component {
                   onMouseLeave={ handleMouseLeave }>
                   <HotTitle>
                     <span>热门搜索</span>
-                    <span className='change' onClick={ () => { handleChangePage(curPage, totalPage) } }>换一批</span>
+                    <Change onClick={ () => { handleChangePage(curPage, totalPage, this.changeIcon) } }>
+                      <i className='iconfont' ref={icon => { this.changeIcon = icon }}>&#xe97d;</i>
+                      换一批
+                    </Change>
                   </HotTitle>
                   <ul>{ hotSearch.slice((curPage - 1) * 10, curPage * 10).map(item => <HotItem key={item}>{item}</HotItem>) }</ul>
                 </HotSearch>
@@ -65,7 +67,10 @@ const mapDispatchToProps = dispatch => ({
   handleMouseLeave () {
     dispatch(actionCreators.getMouseLeaveAction());
   },
-  handleChangePage (curPage, totalPage) {
+  handleChangePage (curPage, totalPage, icon) {
+    let angle = icon.style.transform.replace(/[^0-9]/ig, '');
+    angle = angle ? parseInt(angle) + 720 : 720;
+    icon.style.transform = `rotate(${angle}deg)`;
     curPage < totalPage ? dispatch(actionCreators.getChangePageAction(++curPage)) : dispatch(actionCreators.getChangePageAction(1));
   }
 });

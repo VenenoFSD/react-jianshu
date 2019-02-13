@@ -114,12 +114,20 @@ export const HotTitle = styled.div`
   color: #999;
   font-size: 14px;
   margin-bottom: 16px;
-  .change {
+`;
+
+export const Change = styled.div`
+  font-size: 13px;
+  cursor: pointer;
+  &:hover {
+    color: #666;
+  }
+  .iconfont {
+    display: inline-block;
     font-size: 13px;
-    cursor: pointer;
-    &:hover {
-      color: #666;
-    }
+    margin-right: 3px;
+    transition: all 0.5s;
+		transform-origin: center center;
   }
 `;
 
