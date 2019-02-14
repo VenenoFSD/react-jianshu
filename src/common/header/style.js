@@ -95,6 +95,7 @@ export const NavSearch = styled.input.attrs({
 `;
 
 export const HotSearch = styled.div`
+  background-color: #fff;
   position: absolute;
   width: 240px;
   left: 0;
@@ -119,6 +120,7 @@ export const HotTitle = styled.div`
 export const Change = styled.div`
   font-size: 13px;
   cursor: pointer;
+  user-select: none;
   &:hover {
     color: #666;
   }
