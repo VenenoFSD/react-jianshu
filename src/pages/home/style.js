@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import backToTop from '../../static/backToTop.png'
 
 export const HomeWrapper = styled.div`
   width: 960px;
@@ -28,6 +29,7 @@ export const TopicWrapper = styled.ul`
   display: flex;
   flex-wrap: wrap;
   border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
   margin-top: 30px;
 `;
 
@@ -51,11 +53,31 @@ export const TopicItem = styled.li`
   }
 `;
 
+export const ReadMore = styled.div`
+  height: 40px;
+  font-size: 15px;
+  color: #fff;
+  background-color: #a5a5a5;
+  border-radius: 20px;
+  line-height: 40px;
+  text-align: center;
+  margin: 30px 0;
+  cursor: pointer;
+  user-select: none;
+  &:hover {
+    background-color: #888;
+  }
+`;
+
 export const ListItem = styled.li`
   display: flex;
   align-items: center;
   padding: 20px 0;
-  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  transition: background-color .4s;
+  &:hover {
+    background-color: #fafafa;
+  }
   .info {
     flex: 1;
     .title {
@@ -121,4 +143,15 @@ export const WriterItem = styled.li`
     color: #42c02e;
     padding-top: 8px;
   }
+`;
+
+export const BackToTop = styled.div`
+  position: fixed;
+  right: 40px;
+  bottom: 60px;
+  width: 50px;
+  height: 50px;
+  background: url(${backToTop}) center center no-repeat;
+  border: 1px solid #ddd;
+  cursor: pointer;
 `;
