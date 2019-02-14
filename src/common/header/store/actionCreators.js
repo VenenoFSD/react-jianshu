@@ -17,10 +17,8 @@ export const getChangePageAction = page => ({
 
 export const getList = () => {
   return dispatch => {
-    axios.get('/api/hotSearch.json').then(({data: {success, data}}) => {
-      if (success) {
-        dispatch(getListAction(data));
-      }
+    axios.get('/api/headerHot.json').then(({data: {success, data}}) => {
+      success && dispatch(getListAction(data));
     });
   }
 };
