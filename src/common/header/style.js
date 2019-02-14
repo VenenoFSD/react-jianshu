@@ -12,8 +12,7 @@ export const HeaderContainer = styled.div`
   margin: 0 auto;
 `;
 
-export const Logo = styled.a`
-  display: block;
+export const Logo = styled.div`
   width: 100px;
   height: 100%;
   position: absolute;

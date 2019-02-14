@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { HeaderWrapper, HeaderContainer, Logo, Nav, NavLeft, NavRight, NavItem, SearchWrapper, NavSearch, HotSearch, HotTitle, Change, HotItem, Addition, Button } from "./style"
 import { connect } from 'react-redux'
 import { actionCreators } from './store'
+import { Link } from 'react-router-dom'
 
 class Header extends Component {
   render () {
@@ -9,10 +10,14 @@ class Header extends Component {
     return (
       <HeaderWrapper>
         <HeaderContainer>
-          <Logo href='/'/>
+          <Link to='/'>
+            <Logo/>
+          </Link>
           <Nav>
             <NavLeft>
-              <NavItem className='active'>首页</NavItem>
+              <Link to='/'>
+                <NavItem className='active'>首页</NavItem>
+              </Link>
               <NavItem>下载App</NavItem>
               <SearchWrapper>
                 <NavSearch onFocus={ () => { handleInputFocus(hotSearch) } }/>
