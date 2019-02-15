@@ -1,0 +1,16 @@
+{
+  "success": true,
+  "data": {
+    "title": "可视化神器--Plotly",
+    "author": {
+      "name": "Veneno",
+      "avatar": "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1658603858,686533857&fm=26&gp=0.jpg",
+      "time": "2019.01.10 22:26",
+      "words": 855,
+      "read": 72424,
+      "comment": 36,
+      "like": 911
+    },
+    "content": "<p>Plotly 是一款用来做数据分析和可视化的在线平台，功能非常强大,可以在线绘制很多图形比如条形图、散点图、饼图、直方图等等。而且还是支持在线编辑，以及多种语言python、javascript、matlab、R等许多API。它在python中使用也很简单，直接用pip install plotly就可以了。推荐最好在jupyter notebook中使用，pycharm操作不是很方便。使用Plotly可以画出很多媲美Tableau的高质量图：</p><img src='https://upload-images.jianshu.io/upload_images/1068454-4c9c74bfaf105cc8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp', alt=''/><p>数据分析离不开数据可视化。我们最常用的就是pandas，matplotlib，pyecharts当然还有Tableau，看到一篇文章介绍plotly制图后我也跃跃欲试，查看了相关资料开始尝试用它制图</p><p>直方图是我们比较常用的一种图形，plotly绘制直方图的方式跟我们在pandas里面设置的有点类似，他们非常直观的体现了不同月份两个生产力之间的差异。</p><p>上面的制图只是plotly的冰山一角，都是一些最基本的用法，它还有很多很酷的用法和图形，尤其是跟pandas结合画的图非常漂亮。比如一些股票的K线图，大家有兴趣可以研究研究~</p>"
+  }
+}
