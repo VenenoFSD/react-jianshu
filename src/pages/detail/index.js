@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import { DetailWrapper, Author, Title, Content, Watch } from './style'
 import { connect } from 'react-redux'
 import { actionCreators } from './store'
 
-class Detail extends Component {
+class Detail extends PureComponent {
 
   render () {
     const { title, author: { name, avatar, time, words, read, comment, like }, content } = this.props;
