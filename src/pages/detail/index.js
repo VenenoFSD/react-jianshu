@@ -10,20 +10,20 @@ class Detail extends PureComponent {
     const { title, author: { name, avatar, time, words, read, comment, like }, content } = this.props;
     return (
       <DetailWrapper>
-        <Title>{title}</Title>
+        <Title>{ title }</Title>
         <Author>
-          <img src={avatar} alt=""/>
+          <img src={ avatar } alt=""/>
           <div className="info">
             <p className="name">
-              {name}
+              { name }
               <Watch>+关注</Watch>
             </p>
             <p className="author-detail">
-              <span>{time}</span>
-              <span>字数 {words}</span>
-              <span>阅读 {read}</span>
-              <span>评论 {comment}</span>
-              <span>喜欢 {like}</span>
+              <span>{ time }</span>
+              <span>字数 { words }</span>
+              <span>阅读 { read }</span>
+              <span>评论 { comment }</span>
+              <span>喜欢 { like }</span>
             </p>
           </div>
         </Author>

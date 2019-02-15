@@ -4,11 +4,7 @@ import { connect } from 'react-redux'
 
 const Recommend = props => {
   return (
-    <ul>
-      {
-        props.recommendList.map(item => <RecommendItem key={item.id} imgUrl={item.imgUrl}/>)
-      }
-    </ul>
+    <ul>{ props.recommendList.map(item => <RecommendItem key={ item.id } imgUrl={ item.imgUrl }/>) }</ul>
   )
 };
 

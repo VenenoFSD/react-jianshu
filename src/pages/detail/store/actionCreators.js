@@ -3,7 +3,7 @@ import axios from 'axios'
 
 export const changeDetail = id => {
   return dispatch => {
-    axios.get(`/api/detail.json?id=${id}`).then(({data: {success, data}}) => {
+    axios.get(`/api/detail.json?id=${id}`).then(({ data: { success, data } }) => {
       success && dispatch(getChangeDetailAction(data));
     });
   }

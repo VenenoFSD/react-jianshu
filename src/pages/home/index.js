@@ -9,14 +9,6 @@ import { actionCreators } from './store'
 
 class Home extends PureComponent {
 
-  handleScroll () {
-    window.scrollTo(0, 0);
-  }
-
-  bindScrollEvent () {
-    window.addEventListener('scroll', this.props.changeShow);
-  }
-
   render () {
     return (
       <HomeWrapper>
@@ -41,6 +33,26 @@ class Home extends PureComponent {
 
   componentWillUnmount () {
     window.removeEventListener('scroll', this.props.changeShow);
+  }
+
+  handleScroll () {
+    window.scrollTo(0, 0);
+  }
+
+  bindScrollEvent () {
+    window.addEventListener('scroll', this.debounce(this.props.changeShow, 200));
+  }
+
+  debounce (func, delay) {
+    let timer = null;
+    return function (...args) {
+      if (timer) {
+        clearTimeout(timer);
+      }
+      timer = setTimeout(() => {
+        func.apply(this, args);
+      }, delay);
+    }
   }
 
 }

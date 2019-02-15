@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
-import { HeaderWrapper, HeaderContainer, Logo, Nav, NavItem, SearchWrapper, NavSearch, HotSearch, HotTitle, Change, HotItem, Addition, Button } from "./style"
+import React, { PureComponent } from 'react'
+import { HeaderWrapper, HeaderContainer, Logo, Nav, NavItem, SearchWrapper, NavSearch, HotSearch, HotTitle, Change, HotItem, Addition, Button } from './style'
 import { connect } from 'react-redux'
 import { actionCreators } from './store'
 import { Link } from 'react-router-dom'
 import { actionCreators as loginActionCreators } from '../../pages/login/store'
 
-class Header extends Component {
+class Header extends PureComponent {
 
   render () {
     const { showList, hotSearch, curPage, totalPage, loginStatus, handleInputFocus, handleMouseEnter, handleMouseLeave, handleChangePage, logout } = this.props;
@@ -31,11 +31,11 @@ class Header extends Component {
                   <HotTitle>
                     <span>热门搜索</span>
                     <Change onClick={ () => { handleChangePage(curPage, totalPage, this.changeIcon) } }>
-                      <i className='iconfont' ref={icon => { this.changeIcon = icon }}>&#xe97d;</i>
+                      <i className='iconfont' ref={ icon => { this.changeIcon = icon } }>&#xe97d;</i>
                       换一批
                     </Change>
                   </HotTitle>
-                  <ul>{ hotSearch.slice((curPage - 1) * 10, curPage * 10).map(item => <HotItem key={item}>{item}</HotItem>) }</ul>
+                  <ul>{ hotSearch.slice((curPage - 1) * 10, curPage * 10).map(item => <HotItem key={ item }>{ item }</HotItem>) }</ul>
                 </HotSearch>
               </SearchWrapper>
             </div>

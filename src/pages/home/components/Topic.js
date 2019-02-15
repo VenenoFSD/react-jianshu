@@ -7,9 +7,9 @@ const Topic = props => {
     <TopicWrapper>
       {
         props.topicList.map(item => (
-          <TopicItem key={item.id}>
-            <img src={item.imgUrl} alt={item.title}/>
-            <span>{item.title}</span>
+          <TopicItem key={ item.id }>
+            <img src={ item.imgUrl } alt={ item.title }/>
+            <span>{ item.title }</span>
           </TopicItem>
         ))
       }

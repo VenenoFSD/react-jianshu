@@ -10,21 +10,17 @@ const defaultState = fromJS({
   showScroll: false
 });
 
-const initHomeData = (state, action) => {
-  return state.merge({
-    topicList: fromJS(action.topicList),
-    articleList: fromJS(action.articleList),
-    recommendList: fromJS(action.recommendList),
-    writer: fromJS(action.writer)
-  });
-};
+const initHomeData = (state, action) => state.merge({
+  topicList: fromJS(action.topicList),
+  articleList: fromJS(action.articleList),
+  recommendList: fromJS(action.recommendList),
+  writer: fromJS(action.writer)
+});
 
-const getMoreList = (state, action) => {
-  return state.merge({
-    articleList: state.get('articleList').concat(fromJS(action.list)),
-    articlePage: action.nextPage
-  });
-};
+const getMoreList = (state, action) => state.merge({
+  articleList: state.get('articleList').concat(fromJS(action.list)),
+  articlePage: action.nextPage
+});
 
 export default (state = defaultState, action) => {
   switch (action.type) {

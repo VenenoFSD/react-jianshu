@@ -1,5 +1,5 @@
 import * as actionTypes from './actionTypes'
-import { fromJS } from "immutable"
+import { fromJS } from 'immutable'
 import axios from 'axios'
 
 export const getMouseEnterAction = () => ({
@@ -17,7 +17,7 @@ export const getChangePageAction = page => ({
 
 export const getList = () => {
   return dispatch => {
-    axios.get('/api/headerHot.json').then(({data: {success, data}}) => {
+    axios.get('/api/headerHot.json').then(({ data: { success, data } }) => {
       success && dispatch(getListAction(data));
     });
   }

@@ -3,7 +3,7 @@ import * as actionTypes from './actionTypes'
 
 export const login = (account, password) => {
   return dispatch => {
-    axios.get(`/api/login.json?acc=${account}&pwd=${password}`).then(({ data: {success, data} }) => {
+    axios.get(`/api/login.json?acc=${account}&pwd=${password}`).then(({ data: { success, data } }) => {
       success && dispatch(getLoginAction(data));
     });
   }

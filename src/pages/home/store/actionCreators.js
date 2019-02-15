@@ -3,7 +3,7 @@ import axios from 'axios'
 
 export const getHomeData = () => {
   return dispatch => {
-    axios.get('/api/home.json').then(({data: {success, data}}) => {
+    axios.get('/api/home.json').then(({ data: { success, data } }) => {
       success && dispatch(getHomeDataAction(data));
     });
   }
@@ -11,7 +11,7 @@ export const getHomeData = () => {
 
 export const getMoreList = page => {
   return dispatch => {
-    axios.get(`/api/homeList.json?page=${page}`).then(({data: {success, data}}) => {
+    axios.get(`/api/homeList.json?page=${page}`).then(({ data: { success, data } }) => {
       success && dispatch(getMoreListAction(data, page + 1));
     });
   }

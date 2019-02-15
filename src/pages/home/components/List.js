@@ -11,13 +11,13 @@ const List = props => {
       <ul>
         {
           articleList.map((item, index) => (
-            <Link to={'/detail/' + item.id} key={index}>
+            <Link to={'/detail/' + item.id} key={ index }>
               <ListItem>
                 <div className='info'>
-                  <h3 className='title'>{item.title}</h3>
-                  <p className='text'>{item.contain}</p>
+                  <h3 className='title'>{ item.title }</h3>
+                  <p className='text'>{ item.contain }</p>
                 </div>
-                <img src={item.imgUrl} alt={item.title} className='article-img'/>
+                <img src={ item.imgUrl } alt={ item.title } className='article-img'/>
               </ListItem>
             </Link>
           ))

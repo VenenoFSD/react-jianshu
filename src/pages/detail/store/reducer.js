@@ -1,4 +1,4 @@
-import { fromJS } from "immutable"
+import { fromJS } from 'immutable'
 import * as actionsTypes from './actionTypes'
 
 const defaultState = fromJS({
@@ -7,15 +7,17 @@ const defaultState = fromJS({
   content: ''
 });
 
+const changeDetail = (state, action) => state.merge({
+  title: fromJS(action.title),
+  author: fromJS(action.author),
+  content: fromJS(action.content)
+});
+
 export default (state = defaultState, action) => {
   switch (action.type) {
     case actionsTypes.CHANGE_DETAIL:
-      return state.merge({
-        title: fromJS(action.title),
-        author: fromJS(action.author),
-        content: fromJS(action.content)
-      });
+      return changeDetail();
     default:
-      return state
+      return state;
   }
 }

@@ -9,11 +9,11 @@ const Writer = props => {
       <ul>
         {
           props.writer.map(item => (
-            <WriterItem key={item.id}>
-              <img src={item.avatar} alt={item.name}/>
+            <WriterItem key={ item.id }>
+              <img src={ item.avatar } alt={ item.name }/>
               <div className='author'>
-                <p className='name'>{item.name}</p>
-                <p className='detail'>写了{item.write}k字 · {item.like}人喜欢</p>
+                <p className='name'>{ item.name }</p>
+                <p className='detail'>写了{ item.write }k字 · { item.like }人喜欢</p>
               </div>
               <p className='watch'>+关注</p>
             </WriterItem>

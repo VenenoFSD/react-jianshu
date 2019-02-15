@@ -3,7 +3,7 @@ import { LoginWrapper, LoginContainer, Input, Button } from './style'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { actionCreators } from './store'
-import { Redirect } from "react-router-dom"
+import { Redirect } from 'react-router-dom'
 
 class Login extends Component {
 
