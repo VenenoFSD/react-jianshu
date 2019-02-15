@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react'
 import { DetailWrapper, Author, Title, Content, Watch } from './style'
 import { connect } from 'react-redux'
 import { actionCreators } from './store'
+import { withRouter } from 'react-router-dom'
 
 class Detail extends PureComponent {
 
@@ -49,4 +50,4 @@ const mapDispatch = dispatch => ({
   }
 });
 
-export default connect(mapState, mapDispatch)(Detail)
+export default connect(mapState, mapDispatch)(withRouter(Detail))
