@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
-import { HeaderWrapper, HeaderContainer, Logo, Nav, NavLeft, NavRight, NavItem, SearchWrapper, NavSearch, HotSearch, HotTitle, Change, HotItem, Addition, Button } from "./style"
+import { HeaderWrapper, HeaderContainer, Logo, Nav, NavItem, SearchWrapper, NavSearch, HotSearch, HotTitle, Change, HotItem, Addition, Button } from "./style"
 import { connect } from 'react-redux'
 import { actionCreators } from './store'
 import { Link } from 'react-router-dom'
+import { actionCreators as loginActionCreators } from '../../pages/login/store'
 
 class Header extends Component {
+
   render () {
-    const { showList, hotSearch, curPage, totalPage, handleInputFocus, handleMouseEnter, handleMouseLeave, handleChangePage } = this.props;
+    const { showList, hotSearch, curPage, totalPage, loginStatus, handleInputFocus, handleMouseEnter, handleMouseLeave, handleChangePage, logout } = this.props;
     return (
       <HeaderWrapper>
         <HeaderContainer>
@@ -14,7 +16,7 @@ class Header extends Component {
             <Logo/>
           </Link>
           <Nav>
-            <NavLeft>
+            <div>
               <Link to='/'>
                 <NavItem className='active'>首页</NavItem>
               </Link>
@@ -36,30 +38,34 @@ class Header extends Component {
                   <ul>{ hotSearch.slice((curPage - 1) * 10, curPage * 10).map(item => <HotItem key={item}>{item}</HotItem>) }</ul>
                 </HotSearch>
               </SearchWrapper>
-            </NavLeft>
-            <NavRight>
+            </div>
+            <div>
               <NavItem>Aa</NavItem>
-              <NavItem>登录</NavItem>
-            </NavRight>
+              { loginStatus ? <NavItem onClick={ logout }>退出</NavItem> : <Link to='/login'><NavItem>登录</NavItem></Link> }
+            </div>
           </Nav>
           <Addition>
             <Button>注册</Button>
-            <Button className='article'>
-              <i className='iconfont'>&#xe616;</i>
-              写文章
-            </Button>
+            <Link to='/write'>
+              <Button className='article'>
+                <i className='iconfont'>&#xe616;</i>
+                写文章
+              </Button>
+            </Link>
           </Addition>
         </HeaderContainer>
       </HeaderWrapper>
     );
   }
+
 }
 
 const mapStateToProps = state => ({
   curPage: state.getIn(['header', 'curPage']),
   totalPage: state.getIn(['header', 'totalPage']),
   showList: state.getIn(['header', 'showList']),
-  hotSearch: state.getIn(['header', 'hotSearch'])
+  hotSearch: state.getIn(['header', 'hotSearch']),
+  loginStatus: state.getIn(['login', 'loginStatus'])
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -77,6 +83,9 @@ const mapDispatchToProps = dispatch => ({
     angle = angle ? parseInt(angle) + 720 : 720;
     icon.style.transform = `rotate(${angle}deg)`;
     curPage < totalPage ? dispatch(actionCreators.getChangePageAction(++curPage)) : dispatch(actionCreators.getChangePageAction(1));
+  },
+  logout () {
+    dispatch(loginActionCreators.getLogoutAction());
   }
 });
 

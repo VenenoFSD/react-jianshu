@@ -36,17 +36,11 @@ export const Nav = styled.div`
   }
 `;
 
-export const NavLeft = styled.div`
-  color: #333;
-`;
-
-export const NavRight = styled.div`
-  color: #969696;
-`;
-
 export const NavItem = styled.div`
   padding: 0 16px;
   font-size: 16px;
+  color: #666;
+  cursor: pointer;
   &.active {
     color: #e96e5a;
   }
