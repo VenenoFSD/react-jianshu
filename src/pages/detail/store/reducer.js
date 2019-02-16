@@ -16,7 +16,7 @@ const changeDetail = (state, action) => state.merge({
 export default (state = defaultState, action) => {
   switch (action.type) {
     case actionsTypes.CHANGE_DETAIL:
-      return changeDetail();
+      return changeDetail(state, action);
     default:
       return state;
   }
